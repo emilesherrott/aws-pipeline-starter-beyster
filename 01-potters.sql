@@ -11,5 +11,6 @@ CREATE TABLE potters (
 
 INSERT INTO potters (username, firstname, lastname, password, studio_postcode) VALUES
 ('KJones', 'Keith', 'Jones', 'test', 'CT5'),
-('RichM', 'Rich', 'Miller', 'test', 'CR3');
+('RichM', 'Rich', 'Miller', 'test', 'CR3'),
+('SamP', 'Samuel', 'Pipi', 'IloveAWS', 'EN1');
 
