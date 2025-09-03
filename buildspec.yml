@@ -4,6 +4,8 @@ env:
   secrets-manager:
     SECRET_USERNAME: "pipeline-docker-credentials:username"
     SECRET_PASSWORD: "pipeline-docker-credentials:password"
+    AWS_ACCESS_KEY_ID: "pipeline-docker-credentials:access_key" 
+    AWS_SECRET_ACCESS_KEY: "pipeline-docker-credentials:secret_key" 
 
 phases:
 
