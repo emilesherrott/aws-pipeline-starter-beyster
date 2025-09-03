@@ -41,6 +41,7 @@ phases:
       - mv terraform /usr/local/bin/
       - terraform version
       - echo "Running Terraform..."
+      - pwd
       - cd terraform
       - terraform init
       - terraform plan -out=tfplan
