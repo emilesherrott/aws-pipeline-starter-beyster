@@ -11,10 +11,12 @@ phases:
 
   install:
     runtime-versions:
-      docker: 24
       nodejs: 20
   pre_build:
     commands:
+      - echo "Node Version"
+      - node -v
+      - npm -v
       - echo Logging in to DockerHub
       - echo "$SECRET_PASSWORD" | docker login -u "$SECRET_USERNAME" --password-stdin
 
