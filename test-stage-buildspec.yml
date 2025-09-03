@@ -5,14 +5,14 @@ phases:
   install:
     runtime-versions:
       nodejs: 20
-  pre_test:
+  pre_build:
     commands:
       - echo "Node Version"
       - node -v
       - npm -v
       - cd api
       - npm install
-  test:
+  build:
     commands:
       - npm run test
       - cd ..
