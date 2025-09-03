@@ -17,6 +17,8 @@ phases:
       - echo "Node Version"
       - node -v
       - npm -v
+      - echo "showing structure"
+      - ls -R
       - echo Logging in to DockerHub
       - echo "$SECRET_PASSWORD" | docker login -u "$SECRET_USERNAME" --password-stdin
 
