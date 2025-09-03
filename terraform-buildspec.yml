@@ -1,0 +1,23 @@
+version: 0.2
+
+env:
+  secrets-manager:
+    AWS_ACCESS_KEY_ID: "pipeline-docker-credentials:access_key" 
+    AWS_SECRET_ACCESS_KEY: "pipeline-docker-credentials:secret_key" 
+
+phases:
+  pre_build:
+    commands:
+      - echo "Installing Terraform..."
+      - curl -LO https://releases.hashicorp.com/terraform/1.9.0/terraform_1.9.0_linux_amd64.zip 
+      - unzip -o terraform_1.9.0_linux_amd64.zip -d /tmp
+      - mv /tmp/terraform /usr/local/bin/
+      - terraform version
+
+  build:
+    commands:
+      - echo "Running Terraform..."
+      - cd terraform
+      - terraform init
+      - terraform plan -out=tfplan
+      - terraform apply -auto-approve tfplan

@@ -1,0 +1,18 @@
+version: 0.2
+
+phases:
+
+  install:
+    runtime-versions:
+      nodejs: 20
+  pre_test:
+    commands:
+      - echo "Node Version"
+      - node -v
+      - npm -v
+      - cd api
+      - npm install
+  test:
+    commands:
+      - npm run test
+      - cd ..

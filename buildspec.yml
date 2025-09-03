@@ -2,26 +2,14 @@ version: 0.2
 
 env:
   secrets-manager:
-    SECRET_USERNAME: "pipeline-docker-credentials:username"
-    SECRET_PASSWORD: "pipeline-docker-credentials:password"
     AWS_ACCESS_KEY_ID: "pipeline-docker-credentials:access_key" 
     AWS_SECRET_ACCESS_KEY: "pipeline-docker-credentials:secret_key" 
 
 phases:
-
-  install:
-    runtime-versions:
-      nodejs: 20
   pre_build:
     commands:
-      - echo "Node Version"
-      - node -v
-      - npm -v
-      - echo "showing structure"
-      - ls -R
       - echo Logging in to DockerHub
       - echo "$SECRET_PASSWORD" | docker login -u "$SECRET_USERNAME" --password-stdin
-
 
   build:
     commands:
@@ -53,3 +41,4 @@ phases:
 artifacts: 
   files:
     - db/Dockerfile
+    - "**/*.tf"
