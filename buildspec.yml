@@ -15,7 +15,7 @@ phases:
   build:
     commands:
       - echo "Building Docker Image..."
-      - docker build -t emilesherrott/pottery-db:latest .
+      - docker build --platform linux/arm64 -t emilesherrott/pottery-db:latest .
 
   post_build:
     commands:
