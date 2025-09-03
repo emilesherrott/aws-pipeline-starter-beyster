@@ -15,9 +15,11 @@ phases:
     commands:
       - echo "Building Docker Image..."
       - docker build --platform linux/arm64 -t emilesherrott/pottery-db:latest ./db
+      - docker build --platform linux/arm64 -t emilesherrott/pottery-db:$CODEBUILD_BUILD_NUMBER ./db
 
   post_build:
     commands:
       - echo "Pushing Docker Image..."
       - docker push emilesherrott/pottery-db:latest
+      - docker push emilesherrott/pottery-db:$CODEBUILD_BUILD_NUMBER
     
