@@ -1,3 +1,3 @@
 it('maths is working', () => {
-    expect(2+2).toEqual(5)
+    expect(2+2).toEqual(4)
 })
